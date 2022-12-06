@@ -65,6 +65,18 @@ Mirai 天气预报插件。
 
 &nbsp;
 
+## 天气图片（可选）
+
+效果图中的天气图片下载自[天气API图标素材](https://yikeapi.com/help/tianqiimg)，图片命名与API返回的`wea_img`属性对应，可自行下载查看。如不设置插件的天气图片，Bot预报时不带图片，不影响主要功能使用。
+
+设置时，先在MCL的`data/pers.gaylong9.weather_forecast/`下新建`wea_img`目录；
+
+随后将从以上链接下载的素材图片，放在`wea_img`目录下，文件路径如`data/pers.gaylong9.weather_forecast/wea_img/qing.png`。
+
+也可使用其他PNG图片，采用相同命名规范，放在wea_img目录下。
+
+&nbsp;
+
 ---
 
 如有任何意见/建议，欢迎issue/contact。
