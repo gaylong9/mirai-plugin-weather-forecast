@@ -16,6 +16,7 @@ import org.quartz.*;
 import pers.gaylong9.command.SubscribeCommand;
 import pers.gaylong9.command.UnsubscribeCommand;
 import pers.gaylong9.forecast.Forecast;
+import pers.gaylong9.util.Util;
 
 
 public final class WeatherForecastPlugin extends JavaPlugin {
@@ -34,6 +35,7 @@ public final class WeatherForecastPlugin extends JavaPlugin {
         // 设置与数据更新
         this.reloadPluginData(MyPluginData.INSTANCE);
         this.reloadPluginConfig(MyPluginConfig.INSTANCE);
+        Util.reloadPluginData();
         WeatherForecastPlugin.INSTANCE.savePluginConfig(MyPluginConfig.INSTANCE);
         WeatherForecastPlugin.INSTANCE.savePluginData(MyPluginData.INSTANCE);
     }
@@ -41,12 +43,9 @@ public final class WeatherForecastPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
 
-
         // 注册命令
         CommandManager.INSTANCE.registerCommand(SubscribeCommand.INSTANCE, false);
         CommandManager.INSTANCE.registerCommand(UnsubscribeCommand.INSTANCE, false);
-
-
 
         getLogger().info("Weather Forecast Plugin loaded!");
 
@@ -59,9 +58,6 @@ public final class WeatherForecastPlugin extends JavaPlugin {
                 logger.error(e.getMessage());
             }
         });
-
-
-
     }
 
     @Override

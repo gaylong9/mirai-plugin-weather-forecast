@@ -53,15 +53,15 @@ Mirai 天气预报插件。
 
 有权限的用户即可在好友私聊窗口/群聊窗口，发送以下命令，进行操作。
 
-* `/weather-forecast-subscribe <城市名>    # 聊天窗口订阅天气预报`
+* `/weather-forecast-subscribe <城市名/城市编号>    # 聊天窗口订阅天气预报`
 
-* `/weather-forecast-unsubscribe <城市名>    # 聊天窗口退订天气预报`
+* `/weather-forecast-unsubscribe <城市名/城市编号>    # 聊天窗口退订天气预报`
 
 城市名规范遵循[天气API](https://www.tianqiapi.com/index/doc?version=week)：
 
 > 不要带市和区, 支持市区县, 不支持乡镇级别; 如: 青岛、铁西
 
-可在[city.txt](city.txt)搜索查看，也可替换以下地址中的`北京`后访问`https://www.yiketianqi.com/free/week?unescape=1&appid=71249452&appsecret=FObQl8oG&city=北京`查看返回json是否合法。
+可在[city.txt](city.txt)搜索查看，也可在该网站发送请求查看返回json是否合法。
 
 &nbsp;
 
@@ -74,6 +74,12 @@ Mirai 天气预报插件。
 随后将从以上链接下载的素材图片，放在`wea_img`目录下，文件路径如`data/pers.gaylong9.weather_forecast/wea_img/qing.png`。
 
 也可使用其他PNG图片，采用相同命名规范，放在wea_img目录下。
+
+&nbsp;
+
+## 更新记录
+
+* 2.0.0：修改PluginData存储格式，与1.0.0的PluginData不互通，需要删除1.0.0的插件和data文件
 
 &nbsp;
 
