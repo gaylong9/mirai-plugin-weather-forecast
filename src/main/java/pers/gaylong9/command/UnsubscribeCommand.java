@@ -86,7 +86,7 @@ public class UnsubscribeCommand extends JSimpleCommand {
             sender.sendMessage("成功退订" + cityName + "(" + cityId + ")天气");
         } else {
             sb.append("请改用城市编号退订\n");
-            sb.append("城市编号表：https://gitee.com/jin-shiyang/mirai-plugin-weather-forecast/blob/main/city.txt");
+            sb.append("城市编号表：https://github.com/gaylong9/mirai-plugin-weather-forecast/blob/main/city.txt");
             sender.sendMessage(sb.toString());
         }
     }

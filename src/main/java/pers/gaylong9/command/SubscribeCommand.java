@@ -56,7 +56,7 @@ public class SubscribeCommand extends JSimpleCommand {
         Set<String> duplicateRegions = duplicateRegionsValue.get();
         if (duplicateRegions.contains(city)) {
             sender.sendMessage(city + " 存在重名地区，请改用城市编号订阅\n" +
-                    "城市编号表：https://gitee.com/jin-shiyang/mirai-plugin-weather-forecast/blob/main/city.txt");
+                    "城市编号表：https://github.com/gaylong9/mirai-plugin-weather-forecast/blob/main/city.txt");
             return;
         }
 
@@ -71,7 +71,7 @@ public class SubscribeCommand extends JSimpleCommand {
         }
         if (info == null) {
             sender.sendMessage("请核对城市名是否合法，并稍后再试\n" +
-                    "城市编号表：https://gitee.com/jin-shiyang/mirai-plugin-weather-forecast/blob/main/city.txt");
+                    "城市编号表：https://github.com/gaylong9/mirai-plugin-weather-forecast/blob/main/city.txt");
             return;
         }
 
