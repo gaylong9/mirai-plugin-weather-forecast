@@ -1,5 +1,8 @@
 package pers.gaylong9.forecast;
 
+/**
+ * 天气网站API返回结果中一天信息的封装类
+ */
 public class DayInfo {
     /**
      * 日期

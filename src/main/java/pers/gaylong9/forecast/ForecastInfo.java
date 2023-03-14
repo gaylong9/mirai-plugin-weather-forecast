@@ -2,6 +2,9 @@ package pers.gaylong9.forecast;
 
 import java.util.List;
 
+/**
+ * 天气网站API返回结果的封装类
+ */
 public class ForecastInfo {
     public int nums;
     /**城市编号*/

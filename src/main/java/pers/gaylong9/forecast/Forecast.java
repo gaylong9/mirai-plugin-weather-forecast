@@ -28,12 +28,12 @@ public class Forecast {
                 .withIdentity("job", "group").build();
         // 3、构建Trigger实例
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger", "triggerGroup")
-                .startNow()//立即生效
+                .startNow() //立即生效
                 .withSchedule(CronScheduleBuilder.cronSchedule(cron)
                         .inTimeZone(TimeZone.getTimeZone(timezone))
                 ).build();
 
-        //4、Scheduler绑定Job和Trigger，并执行
+        // 4、Scheduler绑定Job和Trigger，并执行
         scheduler.scheduleJob(jobDetail, trigger);
         scheduler.start();
     }

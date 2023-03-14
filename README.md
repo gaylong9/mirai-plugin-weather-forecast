@@ -43,9 +43,9 @@ Mirai 天气预报插件。
 
 由于本插件的命令均需在聊天窗口完成，故使用前还需进行权限分配。参考[官方文档](https://docs.mirai.mamoe.net/console/Permissions.html) 
 
-* 精确用户 `/permission grant u<qq> pers.gaylong9.weather_forecast:*`
+* 精确好友 `/permission grant u<qq> pers.gaylong9.weather_forecast:*`，如`/permission grant u123456 pers.gaylong9.weather_forecast:*`
 
-* 精确群的所有用户 ` /permission grant m<group>.* pers.gaylong9.weather_forecast:*`
+* 精确群的所有用户 ` /permission grant m<group>.* pers.gaylong9.weather_forecast:*`，如`/permission grant m123456.* pers.gaylong9.weather_forecast:*`
 
 &nbsp;
 
@@ -80,6 +80,7 @@ Mirai 天气预报插件。
 ## 更新记录
 
 * 2.0.0：支持重名检测 与 以地区编号订阅。修改了PluginData的数据结构，与1.0.0的PluginData不互通，**需要提前删除1.0.0的插件和data文件**
+* 2.0.2：修改预报格式，加入当日温度，能更好地比较出第二天的温度变化
 
 &nbsp;
 

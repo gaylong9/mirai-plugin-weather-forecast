@@ -49,7 +49,7 @@ public final class WeatherForecastPlugin extends JavaPlugin {
 
         getLogger().info("Weather Forecast Plugin loaded!");
 
-        // Bot登陆后执行
+        // Bot登录后执行
         GlobalEventChannel.INSTANCE.subscribeAlways(BotOnlineEvent.class, event -> {
             try {
                 Forecast.forecast(event.getBot());

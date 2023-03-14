@@ -44,10 +44,10 @@ public class ForecastJob implements Job {
             return;
         }
 
+        // 给订阅的群聊和好友发送天气预报消息
         Value<Map<Long, Map<String, String>>> groupSubscribesValue = MyPluginData.INSTANCE.groupSubscribes;
         Map<Long, Map<String, String>> groupSubscribes = groupSubscribesValue.get();
 
-        // 给订阅的群聊和好友发送天气预报消息
         for (Map.Entry<Long, Map<String, String>> entry : groupSubscribes.entrySet()) {
             Long groupId = entry.getKey();
             Map<String, String> subscribedCities = entry.getValue();
@@ -77,21 +77,34 @@ public class ForecastJob implements Job {
             return;
         }
 
+        DayInfo today = info.data.get(0);
         DayInfo tomorrow = info.data.get(1);
 
-        StringBuilder sb = new StringBuilder();
         /*
-         明天(yyyy-mm-dd)北京天气：\n
-         */
-        sb.append("明天(").append(tomorrow.date).append(")")
-                .append(info.city).append("天气：\n");
+        预报消息格式如下：
+
+        北京天气：
+        今天温度 -3 ~ 8℃
+        明天(yyyy-mm-dd)：
+        (天气图标img)
+        晴，-3 ~ 8℃，南风 <3级
+        */
+        StringBuilder sb = new StringBuilder();
+        // 北京天气：\n今天温度 -3 ~ 8℃
+        sb.append(info.city).append("天气：\n")
+                .append("今天温度 ").append(today.tem_night)
+                .append(" ~ ").append(today.tem_day).append("\u2103\n");
+        // 明天(yyyy-mm-dd)：
+        sb.append("明天(").append(tomorrow.date).append(")：\n");
+
         MessageChainBuilder chianBuilder = new MessageChainBuilder();
         chianBuilder.add(sb.toString());
+
         // 天气图标\n
         File img = new File(ICON_PATH + tomorrow.wea_img + ".png");
         if (img.exists()) {
             Image icon = Contact.uploadImage(contact, img);
-            logger.info("icon is upload: " + Image.isUploaded(icon, Forecast.bot));
+            // logger.info("icon is upload: " + Image.isUploaded(icon, Forecast.bot));
             chianBuilder.add(icon);
             chianBuilder.add("\n");
         }
