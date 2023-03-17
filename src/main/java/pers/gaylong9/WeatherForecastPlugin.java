@@ -1,11 +1,7 @@
 package pers.gaylong9;
 
 import net.mamoe.mirai.console.command.CommandManager;
-import net.mamoe.mirai.console.data.PluginDataStorage;
 import net.mamoe.mirai.console.extension.PluginComponentStorage;
-import net.mamoe.mirai.console.permission.Permission;
-import net.mamoe.mirai.console.permission.PermissionId;
-import net.mamoe.mirai.console.permission.PermissionService;
 import net.mamoe.mirai.console.plugin.jvm.JavaPlugin;
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescriptionBuilder;
 import net.mamoe.mirai.event.GlobalEventChannel;
@@ -15,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.quartz.*;
 import pers.gaylong9.command.SubscribeCommand;
 import pers.gaylong9.command.UnsubscribeCommand;
-import pers.gaylong9.forecast.Forecast;
+import pers.gaylong9.forecast.ForecastConfig;
 import pers.gaylong9.util.Util;
 
 
@@ -52,7 +48,7 @@ public final class WeatherForecastPlugin extends JavaPlugin {
         // Bot登录后执行
         GlobalEventChannel.INSTANCE.subscribeAlways(BotOnlineEvent.class, event -> {
             try {
-                Forecast.forecast(event.getBot());
+                ForecastConfig.forecast(event.getBot());
                 logger.info("天气预报定时任务已启动");
             } catch (SchedulerException e) {
                 logger.error(e.getMessage());

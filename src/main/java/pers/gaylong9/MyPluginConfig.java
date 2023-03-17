@@ -2,7 +2,6 @@ package pers.gaylong9;
 
 import net.mamoe.mirai.console.data.Value;
 import net.mamoe.mirai.console.data.java.JavaAutoSavePluginConfig;
-import org.jetbrains.annotations.NotNull;
 
 public class MyPluginConfig extends JavaAutoSavePluginConfig {
 
@@ -22,8 +21,11 @@ public class MyPluginConfig extends JavaAutoSavePluginConfig {
     /**天气api的用户*/
     public final Value<String> appsecret = value("appsecret", "");
 
-    /**cron表达式，默认每天晚上22点*/
-    public final Value<String> cron = value("cron", "0 0 22 ? * SUN-SAT *");
+    /**明天天气预报的cron表达式，默认每天晚上22点*/
+    public final Value<String> tomorrowCron = value("tomorrowCron", "0 0 22 ? * SUN-SAT *");
+
+    /**今天天气预报的cron表达式，默认为空*/
+    public final Value<String> todayCron = value("todayCron", "");
 
     /**时区，默认北京时间*/
     public final Value<String> timezone = value("timezone", "Asia/Shanghai");

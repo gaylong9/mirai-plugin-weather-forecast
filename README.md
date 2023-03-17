@@ -32,7 +32,8 @@ Mirai 天气预报插件。
 
 * url: 默认`https://v0.yiketianqi.com/free/week`，见查询接口页面所述，有两个可用API，默认用此即可，不需修改
 * appid、appsecret: 注册账号后个人页面查看
-* cron: 依赖Quartz完成定时任务，使用cron表达式定时，默认`0 0 22 ? * SUN-SAT *`，表示每晚10点发送天气预报消息，可自定义；[cron怎么写](https://blog.csdn.net/weixin_40426638/article/details/78959972/)
+* tomorrowCron: 依赖Quartz完成定时任务，使用cron表达式定时，默认`0 0 22 ? * SUN-SAT *`，表示每晚10点发送天气预报消息，可自定义；[cron怎么写](https://blog.csdn.net/weixin_40426638/article/details/78959972/)
+* todayCron：用于指定何时发送当日天气预报，默认为空，表示不预报当日天气
 * timezone: 时区，默认`Asia/Shanghai` 
 
 **修改配置文件前要先关闭MCL。**
@@ -81,8 +82,15 @@ Mirai 天气预报插件。
 
 * 2.0.0：支持重名检测 与 以地区编号订阅。修改了PluginData的数据结构，与1.0.0的PluginData不互通，**需要提前删除1.0.0的插件和data文件**
 * 2.0.2：修改预报格式，加入当日温度，能更好地比较出第二天的温度变化
+* 2.1.0：加入预报当日天气功能；修改了config文件，为了设置预报当日天气的时间，替换插件文件后需要启动-停止一次Mirai，使插件将新设置项保存进config文件；随后修改config文件中的`todayCron`项，指定预报当日天气的时间；随后再次启动Mirai即可；如不设置该项，就不会预报当日天气，也就无需启停
 
 &nbsp;
+
+## Todo
+
+- [x] 预报今日天气
+- [ ] 订阅城市时播报今明两日天气
+- [ ] 添加主动查询天气的命令
 
 ---
 
